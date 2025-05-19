@@ -1,47 +1,117 @@
+:root {
+    --primary-color: #2f3036;
+    --secondary-color: #19c589;
+    --text-color: #ffffff;
+    --hover-color: #16b07d;
+    --background-color: #121212;
+}
+
 body {
-  background-color: black;
-  align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  position: absolute;
+.header {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 2rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-li {
-  display: inline-block;
-  margin-right: 1px;
+.header h1 {
+    margin: 0;
+    font-size: 2.5rem;
 }
 
-li a {
-  display: block;
-  min-width: 140px;
-  height: 50px;
-  text-align: center;
-  line-height: 50px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #fff;
-  background: #2f3036;
-  text-decoration: none;
+.main-content {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
 }
 
-/* Hover state for top level links */
-li:hover a {
-  background: #19c589;
+.navigation {
+    margin-bottom: 3rem;
 }
 
-/* Style for dropdown links */
-li:hover ul a {
-  background: #f3f3f3;
-  color: #2f3036;
-  height: 40px;
-  line-height: 40px;
+.navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
-/* Hover state for dropdown links */
-li:hover ul a:hover {
-  background: #19c589;
-  color: #fff;
+.navigation li {
+    display: inline-block;
+}
+
+.navigation li a {
+    display: block;
+    min-width: 200px;
+    padding: 1rem 2rem;
+    text-align: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: var(--text-color);
+    background: var(--primary-color);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navigation li a:hover {
+    background: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.welcome-section {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: rgba(47, 48, 54, 0.2);
+    border-radius: 8px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navigation ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .navigation li {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 0.5rem;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
 }
