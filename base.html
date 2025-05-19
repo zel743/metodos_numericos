@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mi Proyecto Django{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 h-full">
+    <header class="bg-slate-400 text-white p-4 flex items-center justify-between">
+        <div class="flex items-center">
+            <img src="{% static 'images/logo.jpg' %}" alt="Logo" class="h-10 mr-2">
+            <h1 class="text-2xl font-bold">Urblog</h1>
+        </div>
+        <div class="flex items-center">
+            {% if user.is_authenticated %}
+                <!-- Si el usuario está autenticado, muestra su nombre y un enlace para cerrar sesión -->
+                <div class="bg-gray-500 text-white px-2 py-1 rounded">
+                    Bienvenido, {{ user.username }}!
+                </div>
+                <a href="{% url 'logout' %}" class="ml-2 bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">
+                    Cerrar sesión
+                </a>
+            {% else %}
+                <!-- Si el usuario no está autenticado, muestra un enlace para iniciar sesión -->
+                <a href="{% url 'login' %}" class="bg-gray-500 text-white px-2 py-1 rounded hover:bg-gray-600">
+                    Login
+                </a>
+            {% endif %}
+        </div>
+    </header>
+
+    <nav class="bg-gray-500 text-white p-4">
+        <div class="max-w-screen-xl mx-auto flex items-center justify-center">
+            <ul class="flex space-x-8">
+                <li><a href="" class="hover:text-blue-300">Menu</a></li>
+                <li><a href="#" class="hover:text-blue-300">Windows</a></li>
+                <li><a href="#" class="hover:text-blue-300">MacOs</a></li>
+                <li><a href="#" class="hover:text-blue-300">Linux</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main contenido, ocupa toda la altura de la pantalla -->
+    <main class="bg-stone-300 w-full h-[calc(100%-144px)]">
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>
