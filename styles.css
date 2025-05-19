@@ -67,7 +67,7 @@ body {
     color: var(--text-color);
     background: var(--primary-color);
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 50px;
     transition: all 0.3s ease;
     font-weight: 500;
     font-size: 1.1rem;
@@ -85,19 +85,26 @@ body {
     margin-top: 2rem;
     padding: 2rem;
     background-color: rgb(63, 63, 63);
-    border-radius: 8px;
-    max-width: 800px;
+    border-radius: 30px;
+    max-width: 600px;
     margin-left: auto;
     margin-right: auto;
      background: linear-gradient(rgb(250, 249, 249), rgb(20, 20, 20));
 }
 
 .footer {
-    background-color: var(--primary-color);
     color: var(--text-color);
     text-align: center;
     padding: 1.5rem 0;
     margin-top: auto;
+}
+
+.footer-content {
+    background-color: black;
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    margin: 0 auto;
 }
 
 /* Responsive Design */
