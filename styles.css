@@ -4,6 +4,8 @@
     --text-color: #ffffff;
     --hover-color: #16b07d;
     --background-color: #121212;
+    --card-bg: rgba(47, 48, 54, 0.8);
+    --border-radius: 12px;
 }
 
 body {
@@ -17,6 +19,9 @@ body {
     flex-direction: column;
     min-height: 100vh;
     background-image: url(wallhaven-ym1gpx.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
 }
 
 .header {
@@ -30,6 +35,7 @@ body {
 .header h1 {
     margin: 0;
     font-size: 2.5rem;
+    letter-spacing: 1px;
 }
 
 .main-content {
@@ -38,46 +44,130 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
+    align-items: center;
 }
 
 .navigation {
-    margin-bottom: 3rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
 }
 
-.navigation ul {
+.methods-list {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.methods-list li {
     display: flex;
+}
+
+.methods-list li a {
+    display: flex;
+    align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.navigation li {
-    display: inline-block;
-}
-
-.navigation li a {
-    display: block;
-    min-width: 200px;
-    padding: 1rem 2rem;
+    width: 100%;
+    padding: 1.5rem 1rem;
     text-align: center;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: var(--text-color);
-    background: var(--primary-color);
+    background: var(--card-bg);
     text-decoration: none;
-    border-radius: 50px;
+    border-radius: var(--border-radius);
     transition: all 0.3s ease;
     font-weight: 500;
     font-size: 1.1rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.navigation li a:hover {
+.methods-list li a:hover {
     background: var(--secondary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.return-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.return-button {
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #6e6e6e 0%, #3a3a3a 100%);
+    border: 1px solid #555;
+    color: white;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.return-button::before {
+    content: "←";
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+}
+
+.return-button:hover {
+    background: linear-gradient(135deg, #5a5a5a 0%, #2d2d2d 100%);
     transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.return-button:hover::before {
+    transform: translateX(-5px);
+}
+
+.return-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.footer {
+    color: var(--text-color);
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .methods-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .methods-list li a {
+        padding: 1.2rem 1rem;
+    }
+    
+    .return-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
 }
 
 .welcome-section {
@@ -90,37 +180,5 @@ body {
     margin-left: auto;
     margin-right: auto;
      background: linear-gradient(rgb(250, 249, 249), rgb(20, 20, 20));
-}
-
-.footer {
-    color: var(--text-color);
-    text-align: center;
-    padding: 1.5rem 0;
-    margin-top: auto;
-}
-
-.footer-content {
-    background-color: black;
-    display: inline-block;
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    margin: 0 auto;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .navigation ul {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .navigation li {
-        width: 100%;
-        max-width: 300px;
-        margin-bottom: 0.5rem;
-    }
-    
-    .header h1 {
-        font-size: 2rem;
-    }
+     color: #121212;
 }
