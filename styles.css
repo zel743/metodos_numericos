@@ -1,6 +1,6 @@
 :root {
     --primary-color: #2f3036;
-    --secondary-color: #c51919;
+    --secondary-color: #48398b;
     --text-color: #ffffff;
     --hover-color: #16b07d;
     --background-color: #121212;
@@ -99,6 +99,8 @@ body {
     display: flex;
     justify-content: center;
     margin-top: 2rem;
+    --primary-color: #2f3036;
+    --secondary-color: #48398b;
 }
 
 .return-button {
